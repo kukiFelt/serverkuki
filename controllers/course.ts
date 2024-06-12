@@ -20,5 +20,17 @@ export async function saveCourse(req: Request, res: Response) {
   res.status(201).json(response);
 }
 
-
+export async function deleteCourse(req: Request, res: Response) {
+  //conecta com o banco
+  const client = await pool.connect();
+  const id = req.params.id
+  try {
+    const response = await client.query(`delete from coyrses where id=${id}`);
+    res.status(200).json({"message": "Registro Excluido"})
+  } catch (error) {
+    res.status(404).json({message:error});
+  }finally {
+client.release()
+  }
+}
 
