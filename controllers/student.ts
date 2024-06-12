@@ -48,6 +48,7 @@ export async function saveStudent(req: Request, res: Response) {
     res.status(400).json({ message: 'Dados invalidos', error });
   } finally {
     client.release();
+    console.log
   }
 }
 
