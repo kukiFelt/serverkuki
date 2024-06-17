@@ -20,7 +20,7 @@ export async function listLivro(req: Request, res: Response) {
   const client = await pool.connect();
   try {
     //realiza consulta sql
-    const livros = await client.query(`select * from livro`)
+    const livros = await client.query(`select * from livros`)
     if (livros.rowCount === 0) {
       return res.status(404).json({ message: "não encontrado" })
     }
