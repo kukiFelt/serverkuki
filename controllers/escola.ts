@@ -39,7 +39,7 @@ export async function saveEscola(req: Request, res: Response) {
   console.log(escolas);
   try {
     //realiza consulta sql
-    const response = await client.query(`INSERT INTO escolas (name, email) VALUES ('${escolas.name}')`)
+    const response = await client.query(`INSERT INTO escolas (name) VALUES ('${escolas.name}')`)
     res.status(201).json(response.rows);
     //verifica o erro
     console.log(response.rows[0]);
