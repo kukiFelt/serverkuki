@@ -39,7 +39,7 @@ export async function saveSupplier(req: Request, res: Response) {
   console.log(suppliers);
   try {
     //realiza consulta sql
-    const response = await client.query(`INSERT INTO suppliers (name, description) VALUES ('${suppliers.name}','${suppliers.description}')`)
+    const response = await client.query(`INSERT INTO suppliers (name, address) VALUES ('${suppliers.name}','${suppliers.address}')`)
     res.status(201).json(response.rows);
     //verifica o erro
     console.log(response.rows[0]);
